@@ -27,6 +27,17 @@ function displayTreemap() {
       .sort((a, b) => b.value - a.value);
 
     treemap(root);
+
+    const tile = chart.selectAll('g')
+      .data(root.leaves())
+      .enter()
+      .append('g')
+      .attr('transform', d => `translate(${d.x0}, ${d.y0})`);
+
+    tile.append('rect')
+      .attr('class', 'tile')
+      .attr('width', d => d.x1 - d.x0)
+      .attr('height', d => d.y1 - d.y0);
   }).catch(err => {
     document.querySelector('.error-message').style.display = 'block';
   });
