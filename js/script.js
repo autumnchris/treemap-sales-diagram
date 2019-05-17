@@ -13,6 +13,20 @@ function displayTreemap() {
       .append('svg')
       .attr('viewBox', `0 0 ${w} ${h}`)
       .attr('transform', 'translate(0, 20)');
+
+    const treemap = d3.treemap()
+      .size([w - margin.left - margin.right, h - margin.top - margin.bottom])
+      .padding(2);
+
+    const chart = svg.append('g')
+      .attr('class', 'chart')
+      .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+    const root = d3.hierarchy(dataset)
+      .sum(d => d.value)
+      .sort((a, b) => b.value - a.value);
+
+    treemap(root);
   }).catch(err => {
     document.querySelector('.error-message').style.display = 'block';
   });
