@@ -13,6 +13,16 @@ h2 {
   line-height: 20px;
 }
 
+main {
+  padding: 25px 0 70px;
+}
+
+svg {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
 .error-message {
   background: hsl(349, 96%, 95%);
   border: 1px solid hsl(349, 96%, 90%);
