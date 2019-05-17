@@ -37,7 +37,28 @@ function displayTreemap() {
     tile.append('rect')
       .attr('class', 'tile')
       .attr('width', d => d.x1 - d.x0)
-      .attr('height', d => d.y1 - d.y0);
+      .attr('height', d => d.y1 - d.y0)
+      .on('mouseover', handleMouseover)
+      .on('mouseout', handleMouseout);
+
+    function handleMouseover(d) {
+      const tooltip = d3.select('.treemap')
+        .append('div')
+        .attr('class', 'tooltip')
+        .style('visibility', 'hidden');
+
+      tooltip.transition()
+        .duration(200)
+        .style('visibility', 'visible');
+
+      tooltip.html(`${d.data.name}<br/>${d.data.category}<br/>${d.data.value}`)
+        .style('left', `${d3.event.pageX - 50}px`)
+        .style('top', `${d3.event.pageY - 100}px`);
+    }
+
+    function handleMouseout() {
+      d3.select('.tooltip').remove();
+    }
   }).catch(err => {
     document.querySelector('.error-message').style.display = 'block';
   });
