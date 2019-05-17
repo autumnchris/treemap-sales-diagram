@@ -37,6 +37,14 @@ footer {
   width: 100%;
 }
 
+footer a,
+footer a:visited,
+footer a:hover,
+footer a:active,
+footer a:focus {
+  color: #feb39a;
+}
+
 @media only screen and (min-width: 600px) {
 
   h1 {
