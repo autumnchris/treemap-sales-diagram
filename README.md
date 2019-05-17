@@ -4,6 +4,11 @@ My project for the [Visualize Data with a Treemap Diagram challenge](https://lea
 
 ---
 
+## Built With
+* [D3.js](https://d3js.org)
+* CSS3
+* [Font Awesome](https://fontawesome.com)
+
 ## Demo
 
 View project demo at [https://autumnchris.github.io/treemap-sales-diagram](https://autumnchris.github.io/treemap-sales-diagram).
