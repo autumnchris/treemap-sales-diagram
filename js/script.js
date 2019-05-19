@@ -64,6 +64,31 @@ function displayTreemap() {
     function handleMouseout() {
       d3.select('.tooltip').remove();
     }
+
+    const legend = svg.append('g')
+      .attr('class', 'legend')
+      .attr('transform', `translate(150, 0)`);
+
+    const orderedCategories = dataset.children.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+
+    const legendCategories = legend.selectAll('g')
+      .data(orderedCategories)
+      .enter()
+      .append('g');
+
+    legendCategories.append('rect')
+      .attr('class', 'legend-item')
+      .attr('x', (d, i) => i * 60 - 100)
+      .attr('y', 20)
+      .attr('width', 15)
+      .attr('height', 15)
+      .attr('fill', d => `hsl(${setColor(d.name)}, 98%, 80%)`);
+
+    legendCategories.append('text')
+      .attr('x', (d, i) => i * 60 - 100)
+      .attr('y', 55)
+      .attr('fill', '#fff')
+      .text(d => d.name);
   }).catch(err => {
     document.querySelector('.error-message').style.display = 'block';
   });
