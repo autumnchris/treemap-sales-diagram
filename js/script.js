@@ -9,6 +9,10 @@ function displayTreemap() {
   const h = w * 0.5;
 
   d3.json('https://cdn.rawgit.com/freeCodeCamp/testable-projects-fcc/a80ce8f9/src/data/tree_map/video-game-sales-data.json').then(dataset => {
+    const setColor = d3.scaleOrdinal()
+      .domain(dataset.children)
+      .range([0, 15, 30, 45, 60, 75, 90, 105, 120, 135, 150, 165, 180, 195, 210, 225, 240, 255, 270]);
+
     const svg = d3.select('.treemap')
       .append('svg')
       .attr('viewBox', `0 0 ${w} ${h}`)
@@ -29,7 +33,7 @@ function displayTreemap() {
     treemap(root);
 
     const tile = chart.selectAll('g')
-      .data(root.leaves())
+      .data(treemap(root).leaves())
       .enter()
       .append('g')
       .attr('transform', d => `translate(${d.x0}, ${d.y0})`);
@@ -38,6 +42,7 @@ function displayTreemap() {
       .attr('class', 'tile')
       .attr('width', d => d.x1 - d.x0)
       .attr('height', d => d.y1 - d.y0)
+      .attr('fill', d => `hsl(${setColor(d.parent.data.name)}, 98%, 80%)`)
       .on('mouseover', handleMouseover)
       .on('mouseout', handleMouseout);
 
