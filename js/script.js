@@ -67,7 +67,7 @@ function displayTreemap() {
 
     const legend = svg.append('g')
       .attr('class', 'legend')
-      .attr('transform', `translate(150, 0)`);
+      .attr('transform', 'translate(150, 0)');
 
     const orderedCategories = dataset.children.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 
