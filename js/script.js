@@ -87,7 +87,7 @@ function displayTreemap() {
     legendCategories.append('text')
       .attr('x', (d, i) => i * 60 - 100)
       .attr('y', 55)
-      .attr('fill', '#fff')
+      .attr('fill', 'hsl(0, 0%, 100%)')
       .text(d => d.name);
   }).catch(err => {
     document.querySelector('.error-message').style.display = 'block';
