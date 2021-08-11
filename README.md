@@ -1,6 +1,8 @@
 # Treemap Sales Diagram
 
-My project for the [Visualize Data with a Treemap Diagram challenge](https://learn.freecodecamp.org/data-visualization/data-visualization-projects/visualize-data-with-a-treemap-diagram) as part of the curriculum for the Data Visualization Certification on [freeCodeCamp](https://learn.freecodecamp.org).
+A D3.js treemap that presents the top 100 sold video games grouped by their associated gaming platform.
+
+Inspired by the [Visualize Data with a Treemap Diagram challenge](https://www.freecodecamp.org/learn/data-visualization/data-visualization-projects/visualize-data-with-a-treemap-diagram) as part of the curriculum for the [Data Visualization Certification](https://www.freecodecamp.org/learn/data-visualization) on [freeCodeCamp](https://www.freecodecamp.org).
 
 ---
 
