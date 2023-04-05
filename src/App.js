@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { json } from 'd3';
-import Treemap from './Treemap';
-import ErrorMessage from './Error-Message';
-import LoadingSpinner from './Loading-Spinner';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Treemap from './components/Treemap';
+import ErrorMessage from './components/Error-Message';
+import LoadingSpinner from './components/Loading-Spinner';
 
 const App = () => {
   const [loadingStatus, setLoadingStatus] = useState(true);
@@ -42,14 +44,11 @@ const App = () => {
 
   return (
     <React.Fragment>
-      <header>
-        <h1>Video Game Sales</h1>
-        <h2>Top 100 Most Sold Video Games Grouped by Platform</h2>
-      </header>
+      <Header />
       <main>
         {loadingStatus && !data ? <LoadingSpinner /> : data ? <Treemap data={data} colorData={colorData} /> : <ErrorMessage />}
       </main>
-      <footer>Created by <a href="https://autumnchris.github.io/portfolio" target="_blank">Autumn Bullard</a> &copy; {new Date().getFullYear()}</footer>
+      <Footer />
     </React.Fragment>
   );
 }
